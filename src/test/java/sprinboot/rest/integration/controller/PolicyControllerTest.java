@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import sprinboot.rest.integration.services.PolicyService;
 
+import static org.mockito.BDDMockito.*; //Behavior Driven Development (BDD) style of writing tests uses //given //when //then comments as fundamental parts of your test methods.
 
 /**
 * @author Krishna Bhat
@@ -29,8 +30,10 @@ public class PolicyControllerTest {
 	private PolicyService policyService;
 	
 	@Test
-	public void test() throws Exception{
+	public void testGetPolicy() throws Exception{
 		final int policyNumber = 5;
+		
+		given(policyService.getPolicy(policyNumber)).willReturn("Krishna");
 		
 		mvc.perform(get(PolicyController.URL, policyNumber).accept(MediaType.APPLICATION_JSON_UTF8))
 		.andExpect(status().isOk())
