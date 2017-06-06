@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import sprinboot.rest.integration.services.PolicyService;
+
 /**
 * @author Krishna Bhat
 *
@@ -14,10 +16,17 @@ public class PolicyController {
 
 	public static final String URL = "/policy/{policyNumber}";
 	
+	private final PolicyService policyService;//auto scan firt and
+	
+	//delegating work to service class
+	//constructor -- autowire 
+	public PolicyController(final PolicyService policyService){//automatically inject in 
+		this.policyService = policyService;
+	}
 	
 	@RequestMapping(URL)
 	public String getPolicy(@PathVariable final int policyNumber){
-		return "Krishna";
+		return policyService.getPolicy(policyNumber);
 	}
 	
 }

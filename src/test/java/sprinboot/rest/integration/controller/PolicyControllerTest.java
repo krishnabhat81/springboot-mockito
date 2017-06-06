@@ -7,9 +7,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import sprinboot.rest.integration.services.PolicyService;
+
 
 /**
 * @author Krishna Bhat
@@ -20,6 +24,9 @@ import org.springframework.test.web.servlet.MockMvc;
 public class PolicyControllerTest {
 	@Autowired
 	private MockMvc mvc;
+	
+	@MockBean
+	private PolicyService policyService;
 	
 	@Test
 	public void test() throws Exception{
