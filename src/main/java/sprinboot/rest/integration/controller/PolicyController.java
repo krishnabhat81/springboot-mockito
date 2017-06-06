@@ -15,5 +15,9 @@ public class PolicyController {
 	public static final String URL = "/policy/{policyNumber}";
 	
 	
+	@RequestMapping(URL)
+	public String getPolicy(@PathVariable final int policyNumber){
+		return "Krishna";
+	}
 	
 }
