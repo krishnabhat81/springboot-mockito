@@ -1,0 +1,12 @@
+package sprinboot.rest.integration;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBootRestIntegrationTestApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootRestIntegrationTestApplication.class, args);
+	}
+}
